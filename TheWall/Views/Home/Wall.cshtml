@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <title>The Wall</title>
+    @using TheWall.Models
+    @model ViewModel
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-dark bg-dark">
+        <span class="navbar-brand">The Wall</span>
+        <h4>Welcome, @ViewBag.User.First_Name!</h4>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class='nav-link' href="/logout">Logout</a>
+            </li>
+        </ul>
+    </nav><br>
+    <table>
+        <form class="form" asp-action="postmessage" asp-controller="Home" method="post">
+            <tr>
+                <td><label asp-for="Messages.Context">Post A Message:</label></td>
+            </tr>
+            <tr>
+                <td><textarea name="Context" cols="120" rows="3"></textarea></td>
+                <td><span asp-validation-for="Messages.Context"></span></td>
+            </tr>
+            <tr>
+                <td style="float:right"><button class="btn btn-primary">Post</button></td>
+            </tr>
+        </form>
+    </table>
+        @foreach(var message in ViewBag.Messages) {
+            <b><p>@message.User.First_Name @message.User.Last_Name - @message.Created_At.ToString("MMMM dd, yyyy")</p></b>
+            <p style="text-indent: 20px;">@message.Context</p>
+            @foreach(var comment in ViewBag.Comments) {
+                @if (@comment.MessageId == @message.Id) {
+                    <b><p style="text-indent: 44px;">@comment.User.First_Name @comment.User.Last_Name - @comment.Created_At.ToString("MMMM dd, yyyy")</p></b>
+                    <p style="text-indent: 65px;">@comment.Content</p> 
+                }
+            }
+            <div class="message">
+                <table>
+                    <form asp-controller="Home" asp-action="postcomment" method="post">
+                        <tr>
+                            <td><label asp-for="Comments.Content">Post A Comment:</label></td>
+                        </tr>
+                        <tr>
+                            <td><textarea name="Content" cols="90" rows="3"></textarea><input type="hidden" name="messageid" value=@message.Id></td>
+                            <td><span asp-validation-for="Comments.Content"></span></td>
+                        </tr>
+                        <tr>
+                            <td><button style="float:right;" class="btn btn-success">Post Comment</button></td>
+                        </tr>
+                    </form>
+                </table>
+            </div>
+            
+        }
+        </table>
+</body>
+<style>
+    .message{
+        margin-left: 20px;
+    }
+    body{
+        padding: 0px;
+    }
+    .navbar-nav .nav-link{
+        padding-right: 40px;
+    }
+    .navbar-nav{
+        flex-direction: row;
+    }
+    h4{
+        color: white;
+    }
+</style>
+</html>
