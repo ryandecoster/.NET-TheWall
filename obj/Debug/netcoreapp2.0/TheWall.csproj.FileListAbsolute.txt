@@ -9,3 +9,14 @@ C:\Users\Ryan\Desktop\Entity_Framework\TheWall\obj\Debug\netcoreapp2.0\TheWall.A
 C:\Users\Ryan\Desktop\Entity_Framework\TheWall\obj\Debug\netcoreapp2.0\TheWall.AssemblyInfo.cs
 C:\Users\Ryan\Desktop\Entity_Framework\TheWall\obj\Debug\netcoreapp2.0\TheWall.dll
 C:\Users\Ryan\Desktop\Entity_Framework\TheWall\obj\Debug\netcoreapp2.0\TheWall.pdb
+C:\Users\Ryan\documents\github\.NET-TheWall\bin\Debug\netcoreapp2.0\TheWall.deps.json
+C:\Users\Ryan\documents\github\.NET-TheWall\bin\Debug\netcoreapp2.0\TheWall.runtimeconfig.json
+C:\Users\Ryan\documents\github\.NET-TheWall\bin\Debug\netcoreapp2.0\TheWall.runtimeconfig.dev.json
+C:\Users\Ryan\documents\github\.NET-TheWall\bin\Debug\netcoreapp2.0\TheWall.dll
+C:\Users\Ryan\documents\github\.NET-TheWall\bin\Debug\netcoreapp2.0\TheWall.pdb
+C:\Users\Ryan\documents\github\.NET-TheWall\obj\Debug\netcoreapp2.0\TheWall.csprojResolveAssemblyReference.cache
+C:\Users\Ryan\documents\github\.NET-TheWall\obj\Debug\netcoreapp2.0\TheWall.csproj.CoreCompileInputs.cache
+C:\Users\Ryan\documents\github\.NET-TheWall\obj\Debug\netcoreapp2.0\TheWall.AssemblyInfoInputs.cache
+C:\Users\Ryan\documents\github\.NET-TheWall\obj\Debug\netcoreapp2.0\TheWall.AssemblyInfo.cs
+C:\Users\Ryan\documents\github\.NET-TheWall\obj\Debug\netcoreapp2.0\TheWall.dll
+C:\Users\Ryan\documents\github\.NET-TheWall\obj\Debug\netcoreapp2.0\TheWall.pdb

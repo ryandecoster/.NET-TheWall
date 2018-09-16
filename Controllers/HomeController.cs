@@ -26,7 +26,7 @@ namespace TheWall.Controllers
             {
                 Users = new User(),
                 Comments = new Comment(),
-                Messages = new Message()
+                Messages = new Message(),
             };
             List<Message> allMessages = _context.Messages.Include(m => m.User).ToList();
             List<Comment> allComments = _context.Comments.Include(m => m.User).ToList();
@@ -35,9 +35,15 @@ namespace TheWall.Controllers
             User currentuser = _context.Users
                                 .Include(user => user.Messages)
                                 .Where(user => user.Id == user_id).SingleOrDefault();
+            foreach(var i in allMessages){
+              i.Ago = i.Created_At.TimeAgo();
+            }
+            foreach(var i in allComments){
+              i.Ago = i.Created_At.TimeAgo();
+            }
             ViewBag.User = currentuser;
-            ViewBag.Messages = allMessages;
-            ViewBag.Comments = allComments;
+            ViewBag.Messages = allMessages.OrderByDescending(m => m.Created_At);
+            ViewBag.Comments = allComments.OrderByDescending(c => c.Ago);
             return View(view);
         }
 
@@ -72,6 +78,34 @@ namespace TheWall.Controllers
                 return RedirectToAction("Wall");
             }
             return RedirectToAction("Wall"); 
+        }
+
+        [HttpGet]
+        [Route("Delete/{MessageId}")]
+        public IActionResult Delete(int MessageId)
+        {
+            if(HttpContext.Session.GetInt32("id") == null) {
+                return RedirectToAction("Index", "User");
+            }
+            Message thisMessage = _context.Messages
+                            .Where(m => m.Id == MessageId).SingleOrDefault();
+            _context.Messages.Remove(thisMessage);
+            _context.SaveChanges();
+            return RedirectToAction("Wall");
+        }
+
+        [HttpGet]
+        [Route("Delete/Comment/{CommentId}")]
+        public IActionResult DeleteComment(int CommentId)
+        {
+            if(HttpContext.Session.GetInt32("id") == null) {
+                return RedirectToAction("Index", "User");
+            }
+            Comment thisComment = _context.Comments
+                            .Where(c => c.Id == CommentId).SingleOrDefault();
+            _context.Comments.Remove(thisComment);
+            _context.SaveChanges();
+            return RedirectToAction("Wall");
         }
     }
 }

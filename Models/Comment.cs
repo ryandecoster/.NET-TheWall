@@ -6,26 +6,26 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TheWall.Models
 {
-    public class Message
+    public class Comment
     {
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Message field must not be empty.")]
-        
-        [Column("message")]
-        public string Context { get; set; }
+        [Required(ErrorMessage = "Comment field must not be empty.")]
+        public string Content { get; set; }
         public DateTime Created_At { get; set; }
         public DateTime Updated_At { get; set; }
-
-        [Column("user_id")]
         public User User { get; set; }
-        public List<Comment> Comments { get; set; }
-        public Message()
+        public Message Message { get; set; }
+        public int UserId { get; set; }
+        public int MessageId { get; set; }
+        
+        [NotMapped]
+        public string Ago {get; set;}
+        public Comment()
         {
             Created_At = DateTime.Now;
             Updated_At = DateTime.Now;
-            List<Comment> Comments = new List<Comment>();
         }
-    }   
+    }
 }

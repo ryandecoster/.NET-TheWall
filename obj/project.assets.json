@@ -12788,11 +12788,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ryan\\Desktop\\Entity_Framework\\TheWall\\TheWall.csproj",
+      "projectUniqueName": "C:\\Users\\Ryan\\documents\\github\\.NET-TheWall\\TheWall.csproj",
       "projectName": "TheWall",
-      "projectPath": "C:\\Users\\Ryan\\Desktop\\Entity_Framework\\TheWall\\TheWall.csproj",
+      "projectPath": "C:\\Users\\Ryan\\documents\\github\\.NET-TheWall\\TheWall.csproj",
       "packagesPath": "C:\\Users\\Ryan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ryan\\Desktop\\Entity_Framework\\TheWall\\obj\\",
+      "outputPath": "C:\\Users\\Ryan\\documents\\github\\.NET-TheWall\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
